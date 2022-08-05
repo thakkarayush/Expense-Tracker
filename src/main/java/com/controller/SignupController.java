@@ -39,7 +39,7 @@ public class SignupController {
 			user.setUserType("customer");
 			userDao.addUser(user);
 			model.addAttribute("msg", "Signup done..");
-			return "Login";
+			return "redirect:/login";
 
 		}
 	}

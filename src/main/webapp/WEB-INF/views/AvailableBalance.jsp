@@ -8,12 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-${totalbalance}
-<c:forEach items="${balance}" var="b">
-		
-			${b.amount}
-		
+Available Balance:${totalbalance}
 
-	</c:forEach>
 </body>
 </html>
