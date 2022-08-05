@@ -52,8 +52,8 @@
 			$("#id_category").change(function(){
 				console.log("id_category");
 			var id = document.getElementById("id_category").value;
-						let url = "http://localhost:9898/listSubCategoryById?categoryId="+id;	
-						 	 
+						/* let url = "http://localhost:9898/listSubCategoryById?categoryId="+id; */	
+						 let url = "http://ec2-52-204-157-26.compute-1.amazonaws.com:5432/listSubCategoryById?categoryId="+id;	 
 						$.get(url)
 						.done(function(data){
 							console.log("gj"+data);
