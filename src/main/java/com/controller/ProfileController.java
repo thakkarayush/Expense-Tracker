@@ -68,4 +68,9 @@ public class ProfileController {
 		profileDao.deleteProfile(profileId);
 		return "redirect:/listprofileimages";
 	}
+	
+	@GetMapping("/home")
+	public String home() {
+		return "Home";
+	}
 }

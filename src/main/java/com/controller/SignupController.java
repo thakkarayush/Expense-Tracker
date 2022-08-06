@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -14,13 +16,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bean.LoginBean;
+import com.bean.ProfileBean;
 import com.bean.UserBean;
+import com.dao.ProfileDao;
 import com.dao.UserDao;
 
 @Controller
 public class SignupController {
 	@Autowired
 	UserDao userDao;
+	
+	@Autowired
+	ProfileDao profileDao;
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public String signUp(UserBean user, Model model) {
@@ -59,6 +66,8 @@ public class SignupController {
 			return "Login";
 		} else if (user.getUserType().contentEquals("customer")) {
 			session.setAttribute("user", user);
+			List<ProfileBean> profiles =  profileDao.getAllProfileImagesByUser(user.getUserId());
+			model.addAttribute("profiles",profiles);
 			return "Home";
 		} else if (user.getUserType().contentEquals("admin")) {
 			session.setAttribute("user", user);

@@ -2,7 +2,7 @@ package com.bean;
 
 public class ExpenseBean {
 	private Integer expenseId;
-	private String category;
+	private String categoryId;
 	private String date;
 	private String time;
 	private String description;
@@ -28,12 +28,14 @@ public class ExpenseBean {
 		this.expenseId = expenseId;
 	}
 
-	public String getCategory() {
-		return category;
+	
+
+	public String getCategoryId() {
+		return categoryId;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	public String getDate() {

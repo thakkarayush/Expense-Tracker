@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +10,22 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
+	<style type="text/css">
+	img {
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+	</style>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<c:forEach items="${profiles}" var="p">
+			<tr>
+				<td><img src="${p.profileUrl}" height="200px" width="200px"/></td>		
+			</tr>		
+		</c:forEach>&nbsp;
 		<a class="navbar-brand" href="#">Exp Manager</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
@@ -21,6 +35,7 @@
 		</button>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -86,7 +101,9 @@
 					class="btn btn-outline-success my-2 my-sm-0">Ac Disable</a> -->
 			</form>
 		</div>
+		
 	</nav>
+	
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>

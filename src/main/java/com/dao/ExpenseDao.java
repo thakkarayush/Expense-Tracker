@@ -17,8 +17,8 @@ public class ExpenseDao {
 	JdbcTemplate stmt;
 
 	public void addExpense(ExpenseBean expenseBean) {
-		stmt.update("insert into expense(category,date,time,description,amount,typeofpayment,userid,subcategoryname) values(?,?,?,?,?,?,?,?)",
-				expenseBean.getCategory(),expenseBean.getDate(),expenseBean.getTime(),
+		stmt.update("insert into expense(categoryid,date,time,description,amount,typeofpayment,userid,subcategoryname) values(?,?,?,?,?,?,?,?)",
+				expenseBean.getCategoryId(),expenseBean.getDate(),expenseBean.getTime(),
 				expenseBean.getDescription(),expenseBean.getAmount(),
 				expenseBean.getTypeofpayment(),expenseBean.getUserId(),expenseBean.getSubCategoryName());
 		System.out.println(expenseBean.getSubCategoryName());

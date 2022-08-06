@@ -1,6 +1,7 @@
 <%@page import="com.bean.UserBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,14 +13,14 @@
 	UserBean user = (UserBean) session.getAttribute("user");
 	%>
 	<form method="post" action="saveexistingamount">
-		<label>Question :</label> <select name="accountType" id="type">
-			<option disabled="disabled" selected="selected">--Select
-				type--</option>
-			<option value="cash">Cash</option>
-			<option value="paytm">Paytm</option>
-			<option value="creditcard">Credit Card</option>
-			<option value="debitcard">Debit Card</option>
-		</select><br>
+		<label>Type :</label> 
+		<select name="accountType" id="type">
+			<option disabled="disabled" selected="selected">--Select type--</option>
+			<c:forEach items="${category}" var="c">
+				<option value="${c.categoryId}">${c.categoryName}</option>
+			</c:forEach>
+		</select>
+		<br>
 		<br>
 
 		<div id="amount">
