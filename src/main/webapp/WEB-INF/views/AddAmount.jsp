@@ -33,10 +33,6 @@
 			<br>
 		</div>
 
-		<div id="upiid">
-			<label>UPI ID :</label> <input type="text" name="upiId"><br>
-			<br>
-		</div>
 
 		<input type="submit" name="setamount" /> <input type="hidden"
 			name="userId" value="<%=user.getUserId()%>" />
@@ -46,21 +42,16 @@
 
 			document.querySelector("#type").onchange = function() {
 
-				if (this.value == 'creditcard' || this.value == 'debitcard') {
-					document.querySelector("#upiid").style.display = 'none';
+				if (this.value == 'creditcard' || this.value == 'debitcard' || this.value == "paytm" ) {
+					
 					document.querySelector("#cardno").style.display = 'block';
 					document.querySelector("#amount").style.display = 'block';
 				}
 				if (this.value == "cash") {
-					document.querySelector("#upiid").style.display = 'none';
 					document.querySelector("#cardno").style.display = 'none';
 					document.querySelector("#amount").style.display = 'block';
 				}
-				if (this.value == "paytm") {
-					document.querySelector("#upiid").style.display = 'block';
-					document.querySelector("#cardno").style.display = 'none';
-					document.querySelector("#amount").style.display = 'block';
-				}
+				
 			}
 		})
 	</script>

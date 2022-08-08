@@ -63,7 +63,10 @@ public class AmountController {
 	}
 	
 	@GetMapping("/addexistingamount")
-	public String addExistingAmount(){
+	public String addExistingAmount(Model model, HttpSession session){
+		UserBean user = (UserBean) session.getAttribute("user");
+		List<AmountBean> amountType = amountDao.listAmountType(user.getUserId());	
+		model.addAttribute("amountType", amountType);
 		return "AddExistingAmount";
 	}
 	

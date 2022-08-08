@@ -5,24 +5,14 @@ public class AmountBean {
 	private String accountType;
 	private Integer amount;
 	private Integer userId;
-	private Integer cardNo;
-	private String upiId;
-	
+	private String cardNo;
 
-	public Integer getCardNo() {
+	public String getCardNo() {
 		return cardNo;
 	}
 
-	public void setCardNo(Integer cardNo) {
+	public void setCardNo(String cardNo) {
 		this.cardNo = cardNo;
-	}
-
-	public String getUpiId() {
-		return upiId;
-	}
-
-	public void setUpiId(String upiId) {
-		this.upiId = upiId;
 	}
 
 	public Integer getAccountId() {

@@ -39,9 +39,17 @@
 		
 		Type of Payment:<select name="typeofpayment">
 			<c:forEach items="${amountType}" var="i">
-				<option value="${i.accountType} ${i.cardNo} ${i.upiId}">${i.accountType} ${i.cardNo} ${i.upiId}</option>
+				<option value="${i.accountType}">${i.accountType}</option>
 			</c:forEach>
 		</select><br> <br>
+		<div id="cardno">
+			<label>Card Number(Last 4 digit) :</label> 
+			<select id="id_number" name="cardNo">
+				<option value="select">Select</option>
+			</select>
+			<br>
+			<br>
+		</div>
 		<input type="hidden" value="<%=user.getUserId()%>" name="userId" />
 		<button>Add Expense</button>
 	</form>
@@ -51,9 +59,9 @@
 			console.log("fun");
 			$("#id_category").change(function(){
 				console.log("id_category");
-			var id = document.getElementById("id_category").value;
-						/* let url = "http://localhost:9898/listSubCategoryById?categoryId="+id; */	
-						 let url = "http://ec2-52-204-157-26.compute-1.amazonaws.com:5432/listSubCategoryById?categoryId="+id;	 
+					var id = document.getElementById("id_category").value;
+					 let url = "http://localhost:9898/listSubCategoryById?categoryId="+id;
+						 /* let url = "http://ec2-52-204-157-26.compute-1.amazonaws.com:5432/listSubCategoryById?categoryId="+id;	  */
 						$.get(url)
 						.done(function(data){
 							console.log("gj"+data);
@@ -62,6 +70,35 @@
 								for(let i=0;i<data.length;i++){ 
 								if(data[i].categoryId == id){
 									subcategory.append("<option value="+data[i].subCategoryName+">"+data[i].subCategoryName+"</option>");
+								}
+							}
+							
+						}).fail(function(){
+							console.log("something went wrong"); 
+						});
+			})	
+		})
+		
+		
+	</script>
+	
+	<script>
+	
+		$(document).ready(function(){
+			console.log("fun");
+			$("#id_type").change(function(){
+				console.log("id_type");
+					var type = document.getElementById("id_type").value;
+					 let url = "http://localhost:9898/listCardNumberById?amountType="+type;
+						 /* let url = "http://ec2-52-204-157-26.compute-1.amazonaws.com:5432/listSubCategoryById?categoryId="+id;	  */
+						$.get(url)
+						.done(function(data){
+							console.log("gj"+data);
+							let cardno = $("#id_number");
+							cardno.empty() 
+								for(let i=0;i<data.length;i++){ 
+								if(data[i].accountType == type){
+									cardno.append("<option value="+data[i].cardNo+">"+data[i].cardNo+"</option>");
 								}
 							}
 							

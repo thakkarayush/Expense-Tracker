@@ -14,7 +14,7 @@
 			<td>Account Type</td>
 			<td>Amount</td>
 			<td>Card Number</td>
-			<td>Upi Id</td>
+			
 		</tr>	
 	
 	<c:forEach items="${amount}" var="i">
@@ -22,7 +22,7 @@
 			<td>${i.accountType}</td>
 			<td>${i.amount}</td>
 			<td>${i.cardNo}</td>
-			<td>${i.upiId}</td>
+			
 		</tr>
 	
 	</c:forEach>
